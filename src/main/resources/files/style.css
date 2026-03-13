@@ -1,0 +1,46 @@
+/* menu */
+.menu-bar {
+    -fx-background-color: #8B4513; /* brown */
+}
+
+/* left */
+#left {
+    -fx-background-color: #B07A33;
+    -fx-padding: 10;
+}
+
+/* right */
+#right {
+    -fx-background-color: #7CFC00;
+    -fx-padding: 20;
+}
+
+#right .text-field {
+    -fx-background-color: white;
+    -fx-border-color: gray;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 5 10 5 10;
+    -fx-pref-width: 180;
+}
+
+#right .button {
+    -fx-background-color: #B07A33;
+    -fx-text-fill: black;
+    -fx-pref-width: 180;
+    -fx-padding: 8;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-font-size: 10px;
+}
+
+/* spacing between buttons
+#right .button + .button {
+    -fx-margin-top: 10;
+}*/
+
+/* footer */
+#foot {
+    -fx-background-color: #C0C0C0;
+    -fx-padding: 5;
+}
