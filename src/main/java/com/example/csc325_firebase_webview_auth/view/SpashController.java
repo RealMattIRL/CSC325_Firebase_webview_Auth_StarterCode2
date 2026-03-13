@@ -20,10 +20,12 @@ public class SpashController {
         try {
             // Load main scene
             Parent main = FXMLLoader.load(getClass().getResource("/files/AccessFBView.fxml"));
+            Scene colorScreen = new Scene(main);
+            colorScreen.getStylesheets().add(getClass().getResource("/files/style.css").toExternalForm());
 
             // Get the current stage from any node in the scene
             Stage stage = (Stage) spinner.getScene().getWindow();
-            stage.setScene(new Scene(main));
+            stage.setScene(colorScreen);
         } catch (IOException e) {
             e.printStackTrace();
         }

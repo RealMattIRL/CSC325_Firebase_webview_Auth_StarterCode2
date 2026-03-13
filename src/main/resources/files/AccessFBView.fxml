@@ -43,7 +43,7 @@
       </MenuBar>
       <HBox layoutX="6.0" layoutY="28.0" prefHeight="535.0" prefWidth="880.0">
          <children>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane fx:id='left' id='left' prefHeight="200.0" prefWidth="200.0">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="129.0" layoutX="17.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <effect>
@@ -70,7 +70,7 @@
                   </TableView>
                </children>
             </VBox>
-            <VBox prefHeight="535.0" prefWidth="241.0" spacing="10.0">
+            <VBox fx:id='right' id ='right' prefHeight="535.0" prefWidth="241.0" spacing="10.0">
                <children>
 
                    <TextField fx:id="emailField" promptText="Email" visible="false"/>
@@ -102,6 +102,9 @@
             </VBox>
          </children>
       </HBox>
+       <HBox id="foot" layoutY="560" prefWidth="894">
+           <Label text="Firebase App" />
+       </HBox>
    </children>
    <opaqueInsets>
       <Insets />

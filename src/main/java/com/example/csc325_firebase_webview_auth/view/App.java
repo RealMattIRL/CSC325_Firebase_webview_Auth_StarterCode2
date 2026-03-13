@@ -33,6 +33,12 @@ public class App extends Application {
 
         fstore = contxtFirebase.firebase();
         fauth = FirebaseAuth.getInstance();
+
+        Parent colors = FXMLLoader.load(getClass().getResource("/files/AccessFBView.fxml"));
+        scene = new Scene(colors);
+        scene.getStylesheets().add(App.class.getResource("/files/style.css").toExternalForm());
+
+        //primaryStage.setScene(scene);
     }
 
     public static void setRoot(String fxml) throws IOException {
@@ -41,7 +47,11 @@ public class App extends Application {
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml ));
-        return fxmlLoader.load();
+        Parent root = fxmlLoader.load();
+
+        root.getStylesheets().add(App.class.getResource("/files/style.css").toExternalForm());
+
+        return root;
     }
 
     public static void main(String[] args) {
