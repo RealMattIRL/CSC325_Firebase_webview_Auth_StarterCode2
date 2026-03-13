@@ -5,6 +5,8 @@ import com.example.csc325_firebase_webview_auth.model.FirestoreContext;
 import com.google.cloud.firestore.Firestore;
 import com.google.firebase.auth.FirebaseAuth;
 import java.io.IOException;
+
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -23,11 +25,14 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+        Parent splash = FXMLLoader.load(getClass().getResource("/files/splash.fxml"));
+        Scene sScene = new Scene(splash);
+        primaryStage.setScene(sScene);
+        primaryStage.show();
+
         fstore = contxtFirebase.firebase();
         fauth = FirebaseAuth.getInstance();
-        scene = new Scene(loadFXML("/files/AccessFBView.fxml"));
-        primaryStage.setScene(scene);
-        primaryStage.show();
     }
 
     public static void setRoot(String fxml) throws IOException {

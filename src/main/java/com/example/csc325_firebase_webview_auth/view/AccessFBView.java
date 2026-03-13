@@ -22,13 +22,19 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class AccessFBView {
 
-
-     @FXML
+    @FXML
+    private TextField emailField;
+    @FXML
+    private PasswordField passwordField;
+    @FXML
+    private Button registerButton;
+    @FXML
     private TextField nameField;
     @FXML
     private TextField majorField;
@@ -73,6 +79,14 @@ public class AccessFBView {
      @FXML
     private void switchToSecondary() throws IOException {
         App.setRoot("/files/WebContainer.fxml");
+    }
+
+    @FXML
+    private void regForm() {
+        //regLabel.setVisible(true);
+        emailField.setVisible(true);
+        passwordField.setVisible(true);
+        registerButton.setVisible(true);
     }
 
     public void addData() {
@@ -136,24 +150,32 @@ public class AccessFBView {
         }
     }
 
-    public boolean registerUser() {
+    public void registerUser() { //not step on firebase, so idk if emails go anywhere.
+
+        String email = emailField.getText();
+        String password = passwordField.getText();
+
+        if (email.isEmpty() || password.isEmpty()) {
+            outputField.setText("Email and password are required!");
+            return;
+        }
+
         UserRecord.CreateRequest request = new UserRecord.CreateRequest()
-                .setEmail("user@example.com")
+                .setEmail(email)
                 .setEmailVerified(false)
-                .setPassword("secretPassword")
+                .setPassword(password)
                 .setPhoneNumber("+11234567890")
-                .setDisplayName("John Doe")
+                .setDisplayName(nameField.getText())
                 .setDisabled(false);
 
         UserRecord userRecord;
         try {
             userRecord = App.fauth.createUser(request);
             System.out.println("Successfully created new user: " + userRecord.getUid());
-            return true;
 
         } catch (FirebaseAuthException ex) {
+            outputField.setText("Error registering user: " + ex.getMessage());
            // Logger.getLogger(FirestoreContext.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
         }
 
     }

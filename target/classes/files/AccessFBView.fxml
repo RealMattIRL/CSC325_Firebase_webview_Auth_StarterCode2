@@ -17,13 +17,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <AnchorPane prefHeight="571.0" prefWidth="894.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csc325_firebase_webview_auth.view.AccessFBView">
    <children>
       <MenuBar layoutY="1.0" prefHeight="27.0" prefWidth="894.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Register" />
+                <MenuItem fx:id="menuRegister" mnemonicParsing="false" text="Register" onAction="#regForm"/>
               <MenuItem mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
@@ -70,6 +72,11 @@
             </VBox>
             <VBox prefHeight="535.0" prefWidth="241.0" spacing="10.0">
                <children>
+
+                   <TextField fx:id="emailField" promptText="Email" visible="false"/>
+                   <PasswordField fx:id="passwordField" promptText="Password" visible="false"/>
+                   <Button fx:id="registerButton" text="Register" onAction="#registerUser" visible="false"/>
+
                   <TextField fx:id="nameField" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="272.0" promptText="Name" />
                   <TextField fx:id="majorField" promptText="Major" />
                   <TextField fx:id="ageField" promptText="Age" />
